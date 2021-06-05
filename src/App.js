@@ -5,6 +5,12 @@ import Clock from "./components/Clock";
 import Counter from "./components/Counter";
 import { Radio } from "antd";
 import "./App.css";
+import Watch from "./components/Watch";
+import Articles from './components/Articles'
+import Task7 from './components/Task7'
+import Users from './components/Task6'
+import Task8 from './components/Task8'
+import 'bootstrap/dist/css/bootstrap.css'
 
 class App extends React.Component {
   constructor(props) {
@@ -13,7 +19,7 @@ class App extends React.Component {
       task: 3,
       ignoreProp: 0,
       seed: 40, 
-      showErrorComponent: false
+      showErrorComponent: false,
     };
 
     this.ignoreProp = () => this.setState({ignoreProp: Math.random()});
@@ -61,12 +67,43 @@ class App extends React.Component {
         return (
           <div>
             <h3>ДЗ №5 Задание 4</h3>
-            <Counter />
+            <div className="watch">
+              <Watch />
+            </div>
           </div>
         );
-      default: {}
+      case "5":
+        return (
+          <div>
+            <h3>ДЗ №5 Задание 5</h3>
+            <Articles/>
+          </div>
+        );
+      case "6":
+        return (
+          <div>
+            <h3>ДЗ №5 Задание 6</h3>
+            <Users/>
+          </div>
+        ); 
+      case "7":
+        return (
+          <div>
+            <h3>ДЗ №5 Задание 7</h3>
+            <Task7/>
+          </div>
+        ); 
+      case "8":
+        return (
+          <div>
+            <h3>ДЗ №5 Задание 7</h3>
+            <Task8/>
+          </div>
+        ); 
+      default: 
     }
   }
+  
 
   render() {
     return (
@@ -76,8 +113,11 @@ class App extends React.Component {
           <Radio value={2}>Задание 2</Radio>
           <Radio value={3}>Задание 3</Radio>
           <Radio value={4}>Задание 4</Radio>
+          <Radio value={5}>Задание 5</Radio>
+          <Radio value={6}>Задание 6</Radio>
+          <Radio value={7}>Задание 7</Radio>
+          <Radio value={8}>Задание 8</Radio>
         </Radio.Group>
-        <div>{this.state.task}</div>
         <div>{this.mountComponent()}</div>
       </div>
     );
